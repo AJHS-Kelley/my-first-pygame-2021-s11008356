@@ -1,4 +1,4 @@
-# Pygame Practice, William Case, 11/19/2021 9:07am, v0.3
+# Pygame Practice, William Case, 11/19/2021 9:14am, v0.4
 
 import pygame, sys 
 from pygame.locals import *
@@ -7,7 +7,7 @@ from pygame.locals import *
 pygame.init()
 
 # Create game window
-windowsurface = pygame.display.set_mode((500, 400), 0, 32)
+windowSurface = pygame.display.set_mode((500, 400), 0, 32)
 pygame.display.set_caption("Hello, world!")
 
 # Set Color Values 
@@ -22,3 +22,6 @@ basicFont = pygame.font.SysFont(None, 48)
 
 # Setup Text 
 text = basicFont.render('Hello, world', True, WHITE, BLUE)
+textRect = text.get_rect()
+textRect.centerx = windowSurface.get_rect().centerx
+textRect.centery = windowSurface.get_rect().centery
