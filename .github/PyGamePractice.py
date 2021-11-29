@@ -1,4 +1,4 @@
-# Pygame Practice, William Case, 11/19/2021 9:30am, v0.6
+# Pygame Practice, William Case, 11/19/2021 9:32am, v0.7
 
 import pygame, sys 
 from pygame.locals import *
@@ -37,4 +37,6 @@ pygame.draw.line(windowSurface, BLUE, (60, 60), (120,60), 4)
 pygame.draw.line(windowSurface, BLUE, (120, 60), (60, 120))
 pygame.draw.line(windowSurface, BLUE, (60, 120), (120, 120), 4)
 
+# Draw a circle
+pygame.draw.circle(windowSurface, BLUE, (300, 50), 20, 0)
 
