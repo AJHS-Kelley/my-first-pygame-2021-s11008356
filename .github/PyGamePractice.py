@@ -1,4 +1,4 @@
-# Pygame Practice, William Case, 11/19/2021 8:40am, v0.9
+# Pygame Practice, William Case, 11/19/2021 8:47am, v1.0
 
 import pygame, sys 
 from pygame.locals import *
@@ -62,3 +62,5 @@ pygame.display.update()
 while True:
     for event in pygame.event.get():
         if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
