@@ -1,4 +1,4 @@
-# Pygame Practice, William Case, 11/19/2021 9:34am, v0.8
+# Pygame Practice, William Case, 11/19/2021 8:40am, v0.9
 
 import pygame, sys 
 from pygame.locals import *
@@ -16,18 +16,19 @@ WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
+YELLOW = (255, 252, 99)
 
 # Setup Fonts
 basicFont = pygame.font.SysFont(None, 48)
 
 # Setup Text 
-text = basicFont.render('Hello, world', True, WHITE, BLUE)
+text = basicFont.render('Hello, world', True, YELLOW, BLUE)
 textRect = text.get_rect()
 textRect.centerx = windowSurface.get_rect().centerx
 textRect.centery = windowSurface.get_rect().centery
 
 # Draw background onto window surface.
-windowSurface.fill(WHITE)
+windowSurface.fill(YELLOW)
 
 # draw a green polygon onto surface.
 pygame.draw.polygon(windowSurface, GREEN, ((146, 0),(291, 106), (236, 277), (56, 277), (0,106)))
@@ -42,3 +43,22 @@ pygame.draw.circle(windowSurface, BLUE, (300, 50), 20, 0)
 
 # Draw an ellipse 
 pygame.draw.ellipse(windowSurface, RED, (300, 250, 40, 80), 1)
+
+# Draw text background rectangle onto surface.
+pygame.draw.rect(windowSurface, BLACK, (textRect.left - 20, textRect.top - 20, textRect.width + 40, textRect.height + 40))
+
+# Get a pixel array of the surface.
+pixArray = pygame.PixelArray(windowSurface)
+pixArray[480][380] = BLACK
+del pixArray
+
+# Draw the text onto the surface.
+windowSurface.blit(text, textRect)
+
+# Draw window onto the screen.
+pygame.display.update()
+
+# Run the game loop.
+while True:
+    for event in pygame.event.get():
+        if event.type == QUIT:
